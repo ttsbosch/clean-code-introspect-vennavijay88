@@ -23,6 +23,10 @@ std::vector<int> StringCalculator::splitNumbers(const std::string& numbers) {
     std::string token;
 
     while (std::getline(ss, token, ',')) {
+        size_t pos = 0;
+        while ((pos = token.find('\n')) != std::string::npos) {
+            token.erase(pos, 1);
+        }
         result.push_back(std::stoi(token));
     }
 
