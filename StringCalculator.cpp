@@ -5,16 +5,17 @@
 
 int StringCalculator::add(string input)
 {
-   std::vector<int> numbers = splitNumbers(input);
+    std::vector<int> numbers = splitNumbers(input);
     int sum = 0;
 
     for (int num : numbers) {
         if (num < 0) {
             throw std::runtime_error("Negative numbers not allowed: " + std::to_string(num));
         }
-        sum += num;
+        if (num <= 1000) {
+            sum += num;
+        }
     }
-
     return sum;
 }
 
