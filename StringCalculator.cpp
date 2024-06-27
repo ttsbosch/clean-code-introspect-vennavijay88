@@ -6,13 +6,11 @@
 int StringCalculator::add(string input)
 {
     std::vector<int> numbers = splitNumbers(input);
-    int sum = 0;
+    handleNegativeNumbers(numbers);
 
+    int sum = 0;
     for (int num : numbers) {
-        if (num < 0) {
-            throw std::runtime_error("Negative numbers not allowed: " + std::to_string(num));
-        }
-        if (num <= 1000) {
+        if (num <= 1000) { // Ignore numbers greater than 1000
             sum += num;
         }
     }
@@ -34,4 +32,12 @@ std::vector<int> StringCalculator::splitNumbers(const std::string& numbers) {
     }
 
     return result;
+}
+
+void StringCalculator::handleNegativeNumbers(const std::vector<int>& numbers) {
+    for (int num : numbers) {
+        if (num < 0) {
+            throw std::runtime_error("Negative numbers not allowed: " + std::to_string(num));
+        }
+    }
 }
