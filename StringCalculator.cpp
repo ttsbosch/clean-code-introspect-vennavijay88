@@ -2,11 +2,11 @@
 
 int StringCalculator::add(string input)
 {
-   if (numbers.empty()) {
+   if (input.empty()) {
         return 0;
    }
-    if (numbers.find(',') == std::string::npos) {
-        return std::stoi(numbers);
+    if (input.find(',') == std::string::npos) {
+        return std::stoi(input);
     }
         return 0;
 }
