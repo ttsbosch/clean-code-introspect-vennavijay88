@@ -1,4 +1,5 @@
 #include "StringCalculator.h"
+#include <sstream>
 
 int StringCalculator::add(string input)
 {
