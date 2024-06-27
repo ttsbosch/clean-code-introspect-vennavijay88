@@ -10,7 +10,7 @@ int StringCalculator::add(string input)
 
     for (int num : numbers) {
         if (num < 0) {
-            throw std::invalid_argument("Negative numbers not allowed: " + std::to_string(num));
+            throw std::runtime_error("Negative numbers not allowed: " + std::to_string(num));
         }
         sum += num;
     }
