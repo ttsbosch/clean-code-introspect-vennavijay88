@@ -5,10 +5,6 @@
 
 int StringCalculator::add(string input)
 {
-  if (input.empty()) {
-        return 0;
-    }
-
     std::vector<int> numbers = splitNumbers(input);
     int sum = 0;
 
