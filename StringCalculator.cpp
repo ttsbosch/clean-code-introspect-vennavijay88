@@ -5,7 +5,7 @@
 
 int StringCalculator::add(string input)
 {
-    std::vector<int> numbers = splitNumbers(input);
+   std::vector<int> numbers = splitNumbers(input);
     int sum = 0;
 
     for (int num : numbers) {
@@ -14,6 +14,7 @@ int StringCalculator::add(string input)
         }
         sum += num;
     }
+
     return sum;
 }
 
@@ -23,11 +24,12 @@ std::vector<int> StringCalculator::splitNumbers(const std::string& numbers) {
     std::string token;
 
     while (std::getline(ss, token, ',')) {
-        size_t pos = 0;
-        while ((pos = token.find('\n')) != std::string::npos) {
-            token.erase(pos, 1);
+        std::stringstream sub_ss(token);
+        std::string sub_token;
+        
+        while (std::getline(sub_ss, sub_token, '\n')) {
+            result.push_back(std::stoi(sub_token));
         }
-        result.push_back(std::stoi(token));
     }
 
     return result;
